@@ -1,6 +1,6 @@
 import './styles/main.scss'
+import { ColorGenerator } from './components/ColorGenerator';
+import { CopyrightYeart } from './components/CopyrightYear';
 
-const copyEear = document.getElementById('copy-year')
-const year = new Date().getFullYear()
-copyEear!.textContent = year.toString();
-console.log(year);
+ColorGenerator();
+CopyrightYeart();
