@@ -1,0 +1,29 @@
+{
+    "name": "color-generator",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "repository": "https://github.com/jsuradesign/color-generator.git",
+    "author": {
+        "name": "Jan Sůra",
+        "url": "https://jan-sura.cz",
+        "email": "info@jsuradesign.cz"
+    },
+    "bugs": {
+        "url": "https://github.com/jsuradesign/color-generator/issues"
+    },
+    "homepage": "https://color-generator.jan-sura.cz/",
+    "license": "MIT",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.15",
+        "postcss": "^8.4.29",
+        "sass": "^1.66.1",
+        "typescript": "^5.0.2",
+        "vite": "^4.4.5"
+    }
+}
