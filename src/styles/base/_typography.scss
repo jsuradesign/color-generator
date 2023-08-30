@@ -1,0 +1,11 @@
+a {
+    color: $link-color;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 1.7px;
+
+    &:hover {
+        color: $link-hover-color;
+        text-decoration: none;
+    }
+}
