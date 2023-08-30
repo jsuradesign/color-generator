@@ -71,6 +71,24 @@ export function ColorGenerator() {
         body.classList.add('change-color-animation');
     }
 
+    const flashCopyMessage = (element: HTMLElement): void => {
+        const copyMessage = document.createElement('div');
+        copyMessage.classList.add('copy-message');
+        copyMessage.textContent = 'Copied to clipboard!';
+        element.appendChild(copyMessage);
+
+        // Remove animation
+        setTimeout(() => {
+            copyMessage.classList.add('fadeOutUp');
+        }, 2000);
+        
+        // Remove element
+        setTimeout(() => {
+            element.removeChild(copyMessage);
+            copyMessage.classList.add('fadeOutUp');
+        }, 2500);
+    }
+
     const copyToClipboard = (text: string): void => {
         const textArea = document.createElement('textarea');
         textArea.value = text;
@@ -78,6 +96,7 @@ export function ColorGenerator() {
         textArea.select();
         document.execCommand('copy');
         document.body.removeChild(textArea);
+        flashCopyMessage(document.body);
     }
 
     const generateRandomRgbColor = (): void => {
