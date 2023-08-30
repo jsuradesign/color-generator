@@ -1,0 +1,110 @@
+.colors {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: calc($spacer * 2);
+    background-color: $body-bg;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: $border-radius;
+    border: 1px solid rgba($body-color, 0.25);
+    box-shadow: 0 24px 38px 3px rgba(0, 0, 0, 0.14),
+        0 9px 46px 8px rgba(0, 0, 0, 0.12), 0 11px 15px -7px rgba(0, 0, 0, 0.2);
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+    }
+}
+
+.color {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 250px;
+    padding: $spacer calc($spacer * 3);
+
+    &__name {
+        font-size: 1.25rem;
+        font-weight: 900;
+
+        @media screen and (min-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+
+    &__value {
+        font-family: monospace;
+    }
+
+    &__copy {
+        background: $body-color;
+        color: $body-bg;
+        border-radius: $border-radius;
+        padding: calc($spacer / 3) calc($spacer / 1.5);
+        font-size: calc($font-size / 1.5);
+        margin-top: $spacer;
+        cursor: pointer;
+    }
+
+    &:nth-child(2) {
+        &:before,
+        &:after {
+            content: " ";
+            display: block;
+            width: 100px;
+            height: 1px;
+            background: rgba($body-color, 0.25);
+            position: absolute;
+        }
+
+        &:before {
+            top: 0;
+            margin-top: -0.5px;
+        }
+
+        &:after {
+            bottom: 0;
+            margin-bottom: -0.5px;
+        }
+
+        @media screen and (min-width: 768px) {
+            &:before,
+            &:after {
+                top: unset;
+                bottom: unset;
+                width: 1px;
+                height: 100px;
+            }
+
+            &:before {
+                left: 0;
+                margin-left: -0.5px;
+            }
+
+            &:after {
+                right: 0;
+                margin-right: -0.5px;
+            }
+        }
+    }
+}
+
+.btn {
+    cursor: pointer;
+    font-size: $font-size;
+    font-weight: 100;
+    border: none;
+    padding: calc($spacer / 1.5) $spacer;
+    border-radius: $border-radius;
+    background-color: $body-color;
+    color: $body-bg;
+    // text-transform: uppercase;
+}
+
+.change-color-animation {
+    transition: background-color 0.25s ease-in-out; /* Trvání animace: 1 sekunda */
+}
