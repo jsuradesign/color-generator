@@ -10,6 +10,8 @@ export function ColorGenerator() {
     const copyHexButton = document.getElementById('copy-hex');
     const copyHslButton = document.getElementById('copy-hsl');
 
+    const colorsHistoryElement = document.getElementById('colors-history');
+
     let rgbValue = 'rgb(78, 198, 124)';
     let hexValue = '#4ec67c';
     let hslValue = 'hsl(143, 51%, 54%)';
@@ -115,10 +117,39 @@ export function ColorGenerator() {
         setColors(hex, rgb, hsl);
     }
 
+    const addColorToHistory = (color: string): void => {
+        const colorElement = document.createElement('div');
+        colorElement.classList.add('color-thumb');
+        colorElement.style.backgroundColor = color;
+        colorsHistoryElement!.appendChild(colorElement);
+    }
+
     const handleButtonClick = (event: Event): void => {
         event.preventDefault();
         generateRandomRgbColor();
+        addColorToHistory(rgbValue);
     }
+
+    const handleColorThumbClick = (event: Event): void => {
+        const colorThumb = event.target as HTMLElement;
+        const color = colorThumb.style.backgroundColor;
+        const colorValues = color?.match(/\d+/g);
+        const r = colorValues && parseInt(colorValues[0]);
+        const g = colorValues && parseInt(colorValues[1]);
+        const b = colorValues && parseInt(colorValues[2]);
+
+        const rgb = `rgb(${r}, ${g}, ${b})`;
+        const hex = rgbToHex(r!, g!, b!);
+        const hsl = rgbToHsl(r!, g!, b!);
+
+        rgbValue = rgb;
+        hexValue = hex;
+        hslValue = hsl;
+
+        setColors(hex, rgb, hsl);
+    }
+
+    colorsHistoryElement?.addEventListener('click', handleColorThumbClick);
 
     buttonElement?.addEventListener('click', handleButtonClick);
 }

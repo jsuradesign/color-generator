@@ -25,6 +25,7 @@
     align-items: center;
     justify-content: center;
     min-width: 250px;
+    // width: calc((100% / 3) - ($spacer * 2));
     padding: $spacer calc($spacer * 3);
 
     &__name {
@@ -103,6 +104,22 @@
     background-color: $body-color;
     color: $body-bg;
     // text-transform: uppercase;
+}
+
+.colors-history {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: calc($spacer * 2);
+    gap: calc($spacer / 2);
+
+    & > .color-thumb {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid $body-bg;
+    }
 }
 
 .change-color-animation {
