@@ -1,0 +1,18 @@
+.colors-history {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: calc($spacer * 2);
+    margin-bottom: calc($spacer * 2);
+    gap: calc($spacer / 2);
+    max-width: 100%;
+
+    & > .color-thumb {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: 1px solid $body-bg;
+    }
+}
